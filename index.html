@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>three.ez example</title>
+    <style>
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+        overflow: hidden;
+        overscroll-behavior: none;
+        display: flex;
+        justify-content: center;
+      }
+
+      canvas {
+        width: 50dvw;
+        height: auto;
+        margin: auto;
+        display: block;
+        touch-action: none;
+        user-select: none;
+      }
+      #avatar {
+        border: 2px dashed green;
+      }
+      #loading {
+        position: fixed;
+        left: 0;
+        right: 0;
+        margin: auto;
+        bottom: 0;
+        width: fit-content;
+      }
+    </style>
+  </head>
+  <body>
+    <script type="module" src="/src/main.ts"></script>
+    <canvas id="avatar"></canvas>
+    <div id="loading">0%</div>
+  </body>
+</html>
