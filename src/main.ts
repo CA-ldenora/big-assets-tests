@@ -11,7 +11,7 @@ let model = new Model("models/cutegirl_2k.glb");
 
 const scene = new Scene().add(
   new DirectionalLight(0xffffff, 1.5).translateZ(5),
-  new AmbientLight(0xffffff, 1.0)
+  new AmbientLight(0xffffff, 1.0),
 );
 scene.add(model);
 
@@ -31,7 +31,7 @@ gui
     model = new Model(value);
     scene.add(model);
   });
-gui.add(obj, "resetView").name('center camera on model change');
+gui.add(obj, "resetView").name("center camera on model change");
 
 const camera = new OrthographicCameraAuto(2).translateZ(100);
 
