@@ -1,11 +1,12 @@
 {
-  "compilerOptions": {
-    "module": "ES2022",
-    "target": "ES2022",
-    "strict": true,
-    "noImplicitOverride": true,
-    "strictNullChecks": false,
-    "esModuleInterop": true,
-    "moduleResolution": "node"
-  }
+    "compilerOptions": {
+        "module": "ES2022",
+        "target": "ES2022",
+        "strict": true,
+        "noImplicitOverride": true,
+        "strictNullChecks": false,
+        "esModuleInterop": true,
+        "moduleResolution": "node",
+        "outDir": "dist"
+    }
 }
