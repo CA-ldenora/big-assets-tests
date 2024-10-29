@@ -16,7 +16,7 @@ const scene = new Scene().add(
 scene.add(model);
 
 const gui = new GUI();
-let obj = { model: "models/cutegirl_2k.glb", resetView: true };
+let obj = { model: "models/base.glb", resetView: true };
 gui
   .add(obj, "model", [
     "models/character_free_model_3d_by_oscar_creativo.glb",

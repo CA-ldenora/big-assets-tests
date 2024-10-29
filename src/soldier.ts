@@ -1,6 +1,7 @@
 import {
   AnimationAction,
   AnimationMixer,
+  Box3,
   Group,
   LoadingManager,
   MeshStandardMaterial,
@@ -61,21 +62,24 @@ export class Model extends Group {
     this.add(...clone(gltf.scene).children);
     this._idleAction = this._mixer.clipAction(gltf.animations[0]);
     if (assetName.includes("2k")) {
-      this.scale.set(15, 15, 15);
-      this.translateY(-1.5);
+      const size = 320;
+      this.translateY(-size * 1.5);
+      this.scale.set(size, size, size);
       this.rotateY(Math.PI);
     }
     if (assetName.includes("base")) {
-      this.scale.set(40, 40, 40);
-      this.position.setY(5);
+      const size = 150;
+      this.translateY(-size * 1.5);
+      this.scale.set(size, size, size);
       this._mixer.uncacheClip(this._idleAction.getClip());
       this._idleAction = this._mixer.clipAction(gltf.animations[32]);
       this._talkAction = this._mixer.clipAction(gltf.animations[12]);
-      this._talkAction.setEffectiveTimeScale(0.9)
+      this._talkAction.setEffectiveTimeScale(1)
     }
     if (assetName.includes("1k")) {
-      this.scale.set(15, 15, 15);
-      this.translateY(1.5);
+      const size = 320;
+      this.translateY(-size * 1.5);
+      this.scale.set(size, size, size);
       this.rotateY(Math.PI);
     }
     if (assetName.includes("free")) {
