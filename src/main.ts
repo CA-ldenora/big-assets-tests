@@ -23,6 +23,7 @@ gui
     "models/cutegirl_1k.glb",
     "models/cutegirl_2k.glb",
     "models/lady_deadpool.glb",
+    "models/base.glb",
   ])
   .name("Change Model")
   .onChange((value: string) => {
