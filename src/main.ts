@@ -7,11 +7,11 @@ import { Model } from "./soldier";
 const canvas = document.getElementById("avatar");
 const main = new Main({ rendererParameters: { canvas }, fullscreen: true }); // init three.ez app
 
-let model = new Model("models/cutegirl_2k.glb");
+let model = new Model("models/base.glb", main.renderer);
 
 const scene = new Scene().add(
   new DirectionalLight(0xffffff, 1.5).translateZ(5),
-  new AmbientLight(0xffffff, 1.0),
+  new AmbientLight(0xffffff, 1.0)
 );
 scene.add(model);
 
@@ -29,12 +29,12 @@ gui
   .onChange((value: string) => {
     scene.remove(model);
     if (obj.resetView) controls.reset();
-    model = new Model(value);
+    model = new Model(value, main.renderer);
     scene.add(model);
   });
 gui.add(obj, "resetView").name("center camera on model change");
 
-const camera = new OrthographicCameraAuto(2).translateZ(100);
+const camera = new OrthographicCameraAuto(200).translateZ(100);
 
 main.createView({
   scene,
