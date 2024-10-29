@@ -6,11 +6,17 @@ import { Model } from "./soldier";
 
 const canvas = document.getElementById("avatar");
 const main = new Main({ rendererParameters: { canvas }, fullscreen: true }); // init three.ez app
-Cache.enabled = true;
 
-const model = new Model("models/cutegirl_2k.glb");
+let model = new Model("models/cutegirl_2k.glb");
+
+const scene = new Scene().add(
+  new DirectionalLight(0xffffff, 1.5).translateZ(5),
+  new AmbientLight(0xffffff, 1.0)
+);
+scene.add(model);
+
 const gui = new GUI();
-let obj = { model: "models/cutegirl_2k.glb" };
+let obj = { model: "models/cutegirl_2k.glb", resetView: true };
 gui
   .add(obj, "model", [
     "models/character_free_model_3d_by_oscar_creativo.glb",
@@ -20,14 +26,13 @@ gui
   ])
   .name("Change Model")
   .onChange((value: string) => {
-    model.change(value);
+    scene.remove(model);
+    if (obj.resetView) controls.reset();
+    model = new Model(value);
+    scene.add(model);
   });
+gui.add(obj, "resetView").name('center camera on model change');
 
-const scene = new Scene().add(
-  model,
-  new DirectionalLight(0xffffff, 1.5).translateZ(5),
-  new AmbientLight(0xffffff, 1.0),
-);
 const camera = new OrthographicCameraAuto(2).translateZ(100);
 
 main.createView({
