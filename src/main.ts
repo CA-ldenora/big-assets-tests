@@ -7,7 +7,7 @@ import { Model } from "./soldier";
 const canvas = document.getElementById("avatar");
 const main = new Main({ rendererParameters: { canvas }, fullscreen: true }); // init three.ez app
 
-let model = new Model("models/base.glb", main.renderer);
+let model = new Model("models/cutegirl_1k.glb", main.renderer);
 
 const scene = new Scene().add(
   new DirectionalLight(0xffffff, 1.5).translateZ(5),
@@ -16,7 +16,7 @@ const scene = new Scene().add(
 scene.add(model);
 
 const gui = new GUI();
-let obj = { model: "models/base.glb", resetView: true };
+let obj = { model: "models/cutegirl_1k.glb", resetView: true };
 gui
   .add(obj, "model", [
     "models/character_free_model_3d_by_oscar_creativo.glb",
